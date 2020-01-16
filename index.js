@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express(); //Criando aplicação
@@ -9,6 +10,7 @@ mongoose.connect('mongodb+srv://admin:admin@omnistack-iaqzb.mongodb.net/week10?r
   useUnifiedTopology: true
 });
 
+app.use(cors());
 app.use(express.json()); //Para o app reconhecer requisições .json
 app.use(routes); //Todas as rotas da aplicação estão ligadas ao routes
 app.listen(3333);//localhost:3333 (minha porta)
